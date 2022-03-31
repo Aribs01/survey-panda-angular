@@ -1,0 +1,236 @@
+<!-- <div class="main">
+
+    <section class="hero ptb-100 gradient-overlay" style="background: url('')no-repeat top center / cover">
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+          <div class="col-md-9 col-lg-8">
+            <div class="hero-content-left position-relative z-index text-center text-white" style="margin-top:50px; margin-bottom:-50px">
+              <h1 class="text-white">Survey PANDA</h1>
+              <p class="lead">
+                Quick and Efficient Way To Fill Surveys.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="promo-new ptb-100">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-9 col-lg-8">
+              <div class="section-heading text-center mb-2">
+                <h2>Quiz.</h2>
+                <p class="lead">Please answer the following questions</p>
+                
+                <li *ngFor="let data of list">
+                    {{data.question}}
+                </li>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+     
+
+
+</div> -->
+
+<div class="main" *ngIf="!completed">
+
+    <!--hero section start-->
+    <section class="hero ptb-100 gradient-overlay" style="background: url('')no-repeat top center / cover">
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+          <div class="col-md-9 col-lg-8">
+            <div class="hero-content-left position-relative z-index text-center text-white" style="margin-top:50px; margin-bottom:-50px">
+              <h1 class="text-white">Questions</h1>
+              <p class="lead">
+                Please answer the following questions
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--hero section end-->
+
+    <!--feature section tab style start-->
+    <section id="features" class="feature-tab-section ptb-100 gray-light-bg">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="feature-content-wrap">
+              <div class="tab-content feature-tab-content">
+                <div class="tab-pane active" id="tab6-1">
+                  <div class="row align-items-center justify-content-between pt-5">
+                    <div class="col-md-6 col-lg-6">
+                      <div class="tab-content-wrap">
+                        <span class="h1 display-3 color-secondary font-weight-bold mb-3 d-block">{{index+1}}.</span>
+                        <h3>{{list[index]?.question}}</h3>
+                        <ol  *ngFor="let data of list[index]?.options">
+                            <li (click)="Answer(index+1, data)">
+                                <input type="radio" [value]="data">&nbsp;&nbsp;{{data}}
+                            </li>
+                        </ol>
+                        <p></p>
+                      </div>
+                    </div>
+                    <div class="col-md-5 col-lg-5">
+                      <div class="img-wrap text-center">
+                        <!-- <img src="img/svg-icon-1.svg" alt="feature" class="img-fluid rounded"> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+</div>
+
+<!-- COMPLETED RESPONSE -->
+<div class="main" *ngIf="completed">
+    <section class="hero ptb-100 gradient-overlay" style="background: url('')no-repeat top center / cover">
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+          <div class="col-md-9 col-lg-8">
+            <div class="hero-content-left position-relative z-index text-center text-white" style="margin-top:50px; margin-bottom:-50px">
+              <h1 class="text-white">HURRAY !!!</h1>
+              <p class="lead">
+                Thanks for Completing the Survey
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="promo-new ptb-100">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-md-9 col-lg-8">
+              <div class="section-heading text-center mb-2">
+                <h2>HERE Are your Answers. <br><br></h2>
+               
+                    <div class="container-card-endsurvey-queAns">
+                        <!-- QUESTION 0 -->
+                        <b><p>Question: {{list[0]?.question}}</p></b>
+                        <span class="red" *ngIf=" store[0]  != list[0].correct_answer">
+                            Your Answer : {{ store[0] }}
+                        </span>
+                        <span class="blue" *ngIf=" store[0]  === list[0].correct_answer">
+                            Your Answer : {{ store[0] }}
+                        </span>
+                        <!-- <p> Your Answer : {{ store[0] }} </p> -->
+                        <p> Correct Answer : {{list[0].correct_answer}} </p>
+                        
+                        <!-- QUESTION 1 -->
+                        <b><p>Question: {{list[1]?.question}}</p></b>
+                        <span class="red" *ngIf=" store[1]  != list[1].correct_answer">
+                            Your Answer : {{ store[1] }}
+                        </span>
+                        <span class="blue" *ngIf=" store[1]  === list[1].correct_answer">
+                            Your Answer : {{ store[1] }}
+                        </span>
+                        <!-- <p> Your Answer : {{ store[1] }} </p> -->
+                        <p> Correct Answer : {{list[1].correct_answer}} </p>
+
+                        <!-- QUESTION 2 -->
+                        <b><p>Question: {{list[2]?.question}}</p></b>
+                        <span class="red" *ngIf=" store[2]  != list[2].correct_answer">
+                            Your Answer : {{ store[2] }}
+                        </span>
+                        <span class="blue" *ngIf=" store[2]  === list[2].correct_answer">
+                            Your Answer : {{ store[2] }}
+                        </span>
+                        <!-- <p> Your Answer : {{ store[2] }} </p> -->
+                        <p> Correct Answer : {{list[2].correct_answer}} </p>
+        
+                        <!-- QUESTION 3 -->
+                        <b><p>Question: {{list[3]?.question}}</p></b>
+                        <span class="red" *ngIf=" store[3]  != list[3].correct_answer">
+                            Your Answer : {{ store[3] }}
+                        </span>
+                        <span class="blue" *ngIf=" store[3]  === list[3].correct_answer">
+                            Your Answer : {{ store[3] }}
+                        </span>
+                        <!-- <p> Your Answer : {{ store[3] }} </p> -->
+                        <p> Correct Answer : {{list[3].correct_answer}} </p>
+
+                        <!-- QUESTION 4 -->
+                        <b><p>Question: {{list[4]?.question}}</p></b>
+                        <span class="red" *ngIf=" store[4]  != list[4].correct_answer">
+                            Your Answer : {{ store[4] }}
+                        </span>
+                        <span class="blue" *ngIf=" store[4]  === list[4].correct_answer">
+                            Your Answer : {{ store[4] }}
+                        </span>
+                        <!-- <p> Your Answer : {{ store[4] }} </p> -->
+                        <p> Correct Answer : {{list[4].correct_answer}} </p>
+        
+                        <!-- QUESTION 5 -->
+                        <b><p>Question: {{list[5]?.question}}</p></b>
+                        <span class="red" *ngIf=" store[5]  != list[5].correct_answer">
+                            Your Answer : {{ store[5] }}
+                        </span>
+                        <span class="blue" *ngIf=" store[5]  === list[5].correct_answer">
+                            Your Answer : {{ store[5] }}
+                        </span>
+                        <!-- <p> Your Answer : {{ store[5] }} </p> -->
+                        <p> Correct Answer : {{list[5].correct_answer}} </p>
+
+                        <!-- QUESTION 6 -->
+                        <b><p>Question: {{list[6]?.question}}</p></b>
+                        <span class="red" *ngIf=" store[6]  != list[6].correct_answer">
+                            Your Answer : {{ store[6] }}
+                        </span>
+                        <span class="blue" *ngIf=" store[6]  === list[6].correct_answer">
+                            Your Answer : {{ store[6] }}
+                        </span>
+                        <!-- <p> Your Answer : {{ store[6] }} </p> -->
+                        <p> Correct Answer : {{list[6].correct_answer}} </p>
+        
+                        <!-- QUESTION 7 -->
+                        <b><p>Question: {{list[7]?.question}}</p></b>
+                        <span class="red" *ngIf=" store[7]  != list[7].correct_answer">
+                            Your Answer : {{ store[7] }}
+                        </span>
+                        <span class="blue" *ngIf=" store[7]  === list[7].correct_answer">
+                            Your Answer : {{ store[7] }}
+                        </span>
+                        <!-- <p> Your Answer : {{ store[7] }} </p> -->
+                        <p> Correct Answer : {{list[7].correct_answer}} </p>
+
+                        <!-- QUESTION 8 -->
+                        <b><p>Question: {{list[8]?.question}}</p></b>
+                        <span class="red" *ngIf=" store[8]  != list[8].correct_answer">
+                            Your Answer : {{ store[8] }}
+                        </span>
+                        <span class="blue" *ngIf=" store[8]  === list[8].correct_answer">
+                            Your Answer : {{ store[8] }}
+                        </span>
+                        <!-- <p> Your Answer : {{ store[8] }} </p> -->
+                        <p> Correct Answer : {{list[8].correct_answer}} </p>
+        
+                        <!-- QUESTION 9 -->
+                        <b><p>Question: {{list[9]?.question}}</p></b>
+                        <span class="red" *ngIf=" store[9]  != list[9].correct_answer">
+                            Your Answer : {{ store[9] }}
+                        </span>
+                        <span class="blue" *ngIf=" store[9]  === list[9].correct_answer">
+                            Your Answer : {{ store[9] }}
+                        </span>
+                        <!-- <p> Your Answer : {{ store[9] }} </p> -->
+                        <p> Correct Answer : {{list[9].correct_answer}} </p>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+</div>

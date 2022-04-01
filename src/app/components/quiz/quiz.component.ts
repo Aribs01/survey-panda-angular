@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SurveyForm } from 'src/app/domain/survey-form';
 import { FormService } from 'src/app/services/form.service';
 
 @Component({
@@ -9,10 +8,8 @@ import { FormService } from 'src/app/services/form.service';
 })
 export class QuizComponent implements OnInit {
 
-  forms: SurveyForm[] = [];
   formdata: any;
   list: any[] = [];
-  // form: any;
 
   public index:number = 0;
   public store:any=[];
@@ -39,13 +36,12 @@ export class QuizComponent implements OnInit {
     data.options = currentOptions;
     this.list.push(data);
     })
-    console.log('HERE AS', this.list)
     });
   }
 
   saveResponses(data: any){
     this.store.push(data) 
-     console.log(data);
+    //  console.log(data);
   }
 
   Answer(currentIndex:number, option:any){ 
@@ -60,8 +56,8 @@ export class QuizComponent implements OnInit {
         this.index++;
         this.saveResponses(option)
       }, 1000);
-      
     }
+
     if(currentIndex === this.list.length){
       setTimeout(() => {
         this.completed = true;
@@ -69,5 +65,4 @@ export class QuizComponent implements OnInit {
     }
   
 }
-
 }

@@ -1,0 +1,8 @@
+.quiz{
+    background-color: rgb(177, 176, 176);
+    color: white;
+}
+.quiz:hover{
+    background-color: white;
+    color: black;
+}

@@ -1,44 +1,9 @@
-<!-- <div class="main">
+<div *ngIf="!list[index]?.question">
+    <app-loader></app-loader>
+</div>
 
-    <section class="hero ptb-100 gradient-overlay" style="background: url('')no-repeat top center / cover">
-      <div class="container">
-        <div class="row align-items-center justify-content-center">
-          <div class="col-md-9 col-lg-8">
-            <div class="hero-content-left position-relative z-index text-center text-white" style="margin-top:50px; margin-bottom:-50px">
-              <h1 class="text-white">Survey PANDA</h1>
-              <p class="lead">
-                Quick and Efficient Way To Fill Surveys.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <section class="promo-new ptb-100">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-md-9 col-lg-8">
-              <div class="section-heading text-center mb-2">
-                <h2>Quiz.</h2>
-                <p class="lead">Please answer the following questions</p>
-                
-                <li *ngFor="let data of list">
-                    {{data.question}}
-                </li>
-              </div>
-            </div>
-          </div>
-          
-        </div>
-      </section>
-     
-
-
-</div> -->
 
 <div class="main" *ngIf="!completed">
-
     <!--hero section start-->
     <section class="hero ptb-100 gradient-overlay" style="background: url('')no-repeat top center / cover">
       <div class="container">

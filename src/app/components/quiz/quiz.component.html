@@ -1,10 +1,8 @@
-<div *ngIf="!list[index]?.question">
-    <app-loader></app-loader>
-</div>
-
-
 <div class="main" *ngIf="!completed">
     <!--hero section start-->
+    <div *ngIf="!list[index]?.question">
+        <app-loader></app-loader>
+    </div>
     <section class="hero ptb-100 gradient-overlay" style="background: url('')no-repeat top center / cover">
       <div class="container">
         <div class="row align-items-center justify-content-center">
